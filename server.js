@@ -9,7 +9,6 @@ app.use(express.json());
 app.use(express.static('public'));
 app.use(apiRoutes);
 app.use(htmlRoutes);
-console.log(apiRoutes);
 
 app.listen(PORT, () => {
   console.log(`App running on http://localhost:${PORT}`);
