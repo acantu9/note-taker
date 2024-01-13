@@ -1,9 +1,11 @@
 const express = require('express');
 const apiRoutes = require('./routes/api-routes');
 const htmlRoutes = require('./routes/html-routes');
+const { setupEventListeners } = require('./public/assets/js/listeners');
 const app = express();
 const PORT = process.env.PORT || 3001;
 
+setupEventListeners();
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(express.static('public'));
