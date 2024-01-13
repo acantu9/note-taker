@@ -1,26 +1,23 @@
 // Event listeners to handle the buttons in notes.html
 
 function setupEventListeners() {
-    // Event listeners to handle the buttons in notes.html
-    const { saveToDatabase, fetchFromDatabase, displayNotes } = require(__dirname + '/routes/api-routes');
-  
     // Get references to the buttons
-    const saveNoteBtn = document.querySelector('#save-note');
-    const newNoteBtn = document.querySelector('#new-note');
-    const clearFormBtn = document.querySelector('#clear-btn');
+    const saveNoteBtn = document.querySelector('.save-note');
+    const newNoteBtn = document.querySelector('.new-note');
+    const clearFormBtn = document.querySelector('.clear-btn');
   
     // Add event listeners to the buttons
     saveNoteBtn.addEventListener('click', function() {
         // Get the title and text values from the input fields
-        const title = document.querySelector('#note-title').value;
-        const text = document.querySelector('#note-textarea').value;
+        const title = document.querySelector('.note-title').value;
+        const text = document.querySelector('.note-textarea').value;
     
         // Create an object for the new note
         const newNote = {
             title: title,
             text: text
         };
-  
+    
         // Send a POST request to the server to save the note
         fetch('/api/notes', {
             method: 'POST',
@@ -43,8 +40,8 @@ function setupEventListeners() {
   
     newNoteBtn.addEventListener('click', function() {
         // Retrieve the values of the note title and note text
-        const noteTitle = document.querySelector('#note-title').value;
-        const noteText = document.querySelector('#note-textarea').value;
+        const noteTitle = document.querySelector('.note-title').value;
+        const noteText = document.querySelector('.note-textarea').value;
     
         // Create a new note object
         const newNote = {
@@ -62,20 +59,23 @@ function setupEventListeners() {
         displayNotes(existingNotes);
     
         // Clear the input fields
-        document.querySelector('#note-title').value = '';
-        document.querySelector('#note-textarea').value = '';
+        document.querySelector('.note-title').value = '';
+        document.querySelector('.note-textarea').value = '';
     });
   
     clearFormBtn.addEventListener('click', function() {
         // Clear the input fields
-        document.querySelector('#note-title').value = '';
-        document.querySelector('#note-textarea').value = '';
+        document.querySelector('.note-title').value = '';
+        document.querySelector('.note-textarea').value = '';
     
         // Reset any validation or error messages
-        document.querySelector('#note-title-error').textContent = '';
-        document.querySelector('#note-textarea-error').textContent = '';
+        document.querySelector('.note-title-error').textContent = '';
+        document.querySelector('.note-textarea-error').textContent = '';
     });
 }
+  
+// Execute the setupEventListeners function when the DOM content is loaded
+document.addEventListener('DOMContentLoaded', setupEventListeners);
   
 // Export the necessary variables and functions
 module.exports = {
