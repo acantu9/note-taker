@@ -42,7 +42,7 @@ const saveNote = (note) =>
     headers: {
       'Content-Type': 'application/json'
     },
-    body: JSON.stringify(note)
+    body: JSON.stringify(note),
   });
 
 const deleteNote = (id) =>
@@ -50,7 +50,7 @@ const deleteNote = (id) =>
     method: 'DELETE',
     headers: {
       'Content-Type': 'application/json'
-    }
+    },
   });
 
 const renderActiveNote = () => {
@@ -75,7 +75,7 @@ const renderActiveNote = () => {
 const handleNoteSave = () => {
   const newNote = {
     title: noteTitle.value,
-    text: noteText.value
+    text: noteText.value,
   };
   saveNote(newNote).then(() => {
     getAndRenderNotes();
@@ -157,6 +157,7 @@ const renderNoteList = async (notes) => {
         'text-danger',
         'delete-note'
       );
+      
       delBtnEl.addEventListener('click', handleNoteDelete);
 
       liEl.appendChild(delBtnEl);
