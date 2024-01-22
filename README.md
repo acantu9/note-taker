@@ -2,8 +2,6 @@
  
 ![Screenshot of Note Taker](/public/assets/img/screenshot.png)
 
-[Video Link](https://watch.screencastify.com/v/qNhD55MTjr68jNEZhMdZ)
-
 [Heroku Link](https://git.heroku.com/note-taker-acantu9.git)
  
 ## Description
